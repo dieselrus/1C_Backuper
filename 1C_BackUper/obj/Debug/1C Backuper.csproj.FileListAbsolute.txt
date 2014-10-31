@@ -1,0 +1,13 @@
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\bin\Debug\1C Backuper.exe.config
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\bin\Debug\1C Backuper.exe
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\bin\Debug\1C Backuper.pdb
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\obj\Debug\1C Backuper.csprojResolveAssemblyReference.cache
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\obj\Debug\_1C_Backuper.backup1c.resources
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\obj\Debug\_1C_Backuper.Properties.Resources.resources
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\obj\Debug\1C Backuper.csproj.GenerateResource.Cache
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\obj\Debug\1C Backuper.exe
+G:\Project\C#\1C_Backuper\1C Backuper\1C Backuper\obj\Debug\1C Backuper.pdb
+G:\Project\C#\1C_Backuper\1C_Backuper\1C Backuper\bin\Debug\1C Backuper.exe.config
+G:\Project\C#\1C_Backuper\1C_Backuper\1C Backuper\obj\Debug\1C Backuper.exe
+G:\Project\C#\1C_Backuper\1C_Backuper\1C Backuper\obj\Debug\1C Backuper.pdb
+G:\Project\C#\1C_Backuper\1C_Backuper\1C Backuper\bin\Debug\1C_Backuper.exe.config

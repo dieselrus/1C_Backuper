@@ -1,0 +1,9 @@
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\bin\Debug\1C_BackUper.exe.config
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\bin\Debug\1C_BackUper.exe
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\bin\Debug\1C_BackUper.pdb
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\obj\Debug\1C_BackUper.csprojResolveAssemblyReference.cache
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\obj\Debug\_1C_Backuper.backup1c.resources
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\obj\Debug\_1C_BackUper.Properties.Resources.resources
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\obj\Debug\1C_BackUper.csproj.GenerateResource.Cache
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\obj\Debug\1C_BackUper.exe
+G:\Project\C#\1C_Backuper\1C_Backuper\1C_BackUper\obj\Debug\1C_BackUper.pdb
