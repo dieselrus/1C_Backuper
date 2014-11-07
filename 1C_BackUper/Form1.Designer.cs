@@ -52,7 +52,6 @@
             this.numMin = new System.Windows.Forms.NumericUpDown();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.clbTask = new System.Windows.Forms.CheckedListBox();
             this.btnAddTask = new System.Windows.Forms.Button();
             this.btnRemoveTask = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.txt1CFilePath = new System.Windows.Forms.TextBox();
             this.btn1CPathBrowse = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lstTask = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHour)).BeginInit();
@@ -288,14 +288,6 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // clbTask
-            // 
-            this.clbTask.FormattingEnabled = true;
-            this.clbTask.Location = new System.Drawing.Point(12, 6);
-            this.clbTask.Name = "clbTask";
-            this.clbTask.Size = new System.Drawing.Size(176, 334);
-            this.clbTask.TabIndex = 9;
-            // 
             // btnAddTask
             // 
             this.btnAddTask.Location = new System.Drawing.Point(12, 352);
@@ -313,6 +305,7 @@
             this.btnRemoveTask.TabIndex = 11;
             this.btnRemoveTask.Text = "-";
             this.btnRemoveTask.UseVisualStyleBackColor = true;
+            this.btnRemoveTask.Click += new System.EventHandler(this.btnRemoveTask_Click);
             // 
             // label3
             // 
@@ -384,15 +377,15 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(194, 104);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(93, 13);
+            this.label11.Size = new System.Drawing.Size(119, 13);
             this.label11.TabIndex = 19;
-            this.label11.Text = "Путь к файлу 1С:";
+            this.label11.Text = "Путь к программе 1С:";
             // 
             // txt1CFilePath
             // 
-            this.txt1CFilePath.Location = new System.Drawing.Point(290, 100);
+            this.txt1CFilePath.Location = new System.Drawing.Point(319, 100);
             this.txt1CFilePath.Name = "txt1CFilePath";
-            this.txt1CFilePath.Size = new System.Drawing.Size(271, 20);
+            this.txt1CFilePath.Size = new System.Drawing.Size(242, 20);
             this.txt1CFilePath.TabIndex = 20;
             // 
             // btn1CPathBrowse
@@ -409,11 +402,21 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog";
             // 
+            // lstTask
+            // 
+            this.lstTask.FormattingEnabled = true;
+            this.lstTask.Location = new System.Drawing.Point(12, 12);
+            this.lstTask.Name = "lstTask";
+            this.lstTask.Size = new System.Drawing.Size(176, 329);
+            this.lstTask.TabIndex = 22;
+            this.lstTask.SelectedIndexChanged += new System.EventHandler(this.lstTask_SelectedIndexChanged_1);
+            // 
             // backup1c
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 385);
+            this.Controls.Add(this.lstTask);
             this.Controls.Add(this.btn1CPathBrowse);
             this.Controls.Add(this.txt1CFilePath);
             this.Controls.Add(this.label11);
@@ -426,7 +429,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRemoveTask);
             this.Controls.Add(this.btnAddTask);
-            this.Controls.Add(this.clbTask);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.numMin);
@@ -440,6 +442,7 @@
             this.Name = "backup1c";
             this.Text = "1C Backuper";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.backup1c_FormClosing);
+            this.Load += new System.EventHandler(this.backup1c_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
@@ -480,7 +483,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRemoveTask;
         private System.Windows.Forms.Button btnAddTask;
-        private System.Windows.Forms.CheckedListBox clbTask;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
@@ -490,6 +492,7 @@
         private System.Windows.Forms.TextBox txt1CFilePath;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ListBox lstTask;
     }
 }
 

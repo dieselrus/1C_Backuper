@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace _1C_Backuper
 {
@@ -82,7 +83,7 @@ namespace _1C_Backuper
                 // Создаём в файле заголовок XML-документа
                 textWritter.WriteStartDocument();
                 // Создём голову (head):
-                textWritter.WriteStartElement("head");
+                textWritter.WriteStartElement("root");
                 // Закрываем её
                 textWritter.WriteEndElement();
                 //  И закрываем наш XmlTextWriter
@@ -93,9 +94,9 @@ namespace _1C_Backuper
             //Загружаем наш файл
             document.Load("Task.xml");
 
-            XmlNode element = document.CreateElement("element");
+            XmlNode element = document.CreateElement("Task");
             document.DocumentElement.AppendChild(element);                  // указываем родителя
-            XmlAttribute attribute = document.CreateAttribute("Task");      // создаём атрибут
+            XmlAttribute attribute = document.CreateAttribute("Name");      // создаём атрибут
             attribute.Value = txtTaskName.Text;                             // устанавливаем значение атрибута
             element.Attributes.Append(attribute);                           // добавляем атрибут
 
@@ -207,6 +208,136 @@ namespace _1C_Backuper
                 // cancel the closure of the form.
                 e.Cancel = true;
             }
+        }
+
+        private void readXML()
+        {
+            // Если файл не существует, создаем
+            if (!File.Exists("Task.xml"))
+            {
+                return;
+            }
+
+            XDocument doc = XDocument.Load("Task.xml");
+            if (doc == null || doc.Root == null)
+                throw new ApplicationException("invalid data");
+
+            //проходим по каждому элементу в найшей library
+            //(этот элемент сразу доступен через свойство doc.Root)
+            foreach (XElement el in doc.Root.Elements())
+            {
+                lstTask.Items.Add(el.Attribute("Name").Value);
+                /*
+                //Выводим имя элемента и значение аттрибута id
+                Console.WriteLine("{0} {1}", el.Name, el.Attribute("Task").Value);
+                Console.WriteLine("  Attributes:");
+                //выводим в цикле все аттрибуты, заодно смотрим как они себя преобразуют в строку
+                foreach (XAttribute attr in el.Attributes())
+                    Console.WriteLine("    {0}", attr);
+                Console.WriteLine("  Elements:");
+                //выводим в цикле названия всех дочерних элементов и их значения
+                foreach (XElement element in el.Elements())
+                    Console.WriteLine("    {0}: {1}", element.Name, element.Value);
+                 */
+            }
+        }
+
+        private void readTaskSettings(String taskName)
+        {
+            // Если файл не существует, создаем
+            if (!File.Exists("Task.xml"))
+            {
+                return;
+            }
+
+            XDocument doc = XDocument.Load("Task.xml");
+            if (doc == null || doc.Root == null)
+                throw new ApplicationException("invalid data");
+
+            //проходим по каждому элементу в найшей library
+            //(этот элемент сразу доступен через свойство doc.Root)
+            foreach (XElement el in doc.Root.Elements("Task"))
+            {
+
+                if (el.Attribute("Name").Value == taskName)
+                {
+
+                    try
+                    {
+                        //foreach (XElement element in el.Elements())
+                        //    Console.WriteLine("    {0}: {1}", element.Name, element.Value);
+
+                        txtTaskName.Text = taskName;
+
+                        txtBackUpPath.Text = el.Elements("backupPath").First().Value;
+
+                        txt1CFilePath.Text = el.Elements("file1CPath").First().Value;
+
+                        if (el.Elements("activ").First().Value == "True")
+                        {
+                            chbActiv.Checked = true;
+                        }
+                        else
+                        {
+                            chbActiv.Checked = false;
+                        }
+
+                        txtBasePath.Text = el.Elements("base1CPath").First().Value;
+                        txt1CServer.Text = el.Elements("server1C").First().Value;
+                        txt1CBase.Text = el.Elements("base1C").First().Value;
+                        txt1CUser.Text = el.Elements("user1C").First().Value;
+                        txt1CPassword.Text = el.Elements("password1C").First().Value;
+                        numHour.Value = Convert.ToInt32(el.Elements("taskHour").First().Value);
+                        numMin.Value = Convert.ToInt32(el.Elements("taskMin").First().Value);
+
+                        if (el.Elements("FileOrServer").First().Value == "1")
+                        {
+                            rbtn1CFile.Checked = true;
+                        }
+                        else if (el.Elements("FileOrServer").First().Value == "2")
+                        {
+                            rbtn1CServer.Checked = true;
+                        }
+                    }
+
+                    catch (IOException e)
+                    {
+                        string message = e.Source.ToString();
+                        const string caption = "Ошибка тения файла заданий!";
+                        var result = MessageBox.Show(message, caption,
+                                                     MessageBoxButtons.YesNo,
+                                                     MessageBoxIcon.Error);
+                    }
+                }
+
+            }
+        }
+
+        private void lstTask_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            //Console.WriteLine("lstTask_SelectedIndexChanged" + sender);
+            readTaskSettings(lstTask.GetItemText(lstTask.SelectedItem));		
+        }
+
+        private void backup1c_Load(object sender, EventArgs e)
+        {
+            lstTask.Items.Clear();
+            readXML();
+        }
+
+        private void btnRemoveTask_Click(object sender, EventArgs e)
+        {
+            // Если файл не существует, создаем
+            if (!File.Exists("Task.xml"))
+            {
+                return;
+            }
+
+            XDocument doc = XDocument.Load("Task.xml");
+            if (doc == null || doc.Root == null)
+                throw new ApplicationException("invalid data");
+
+            doc.Element("Сводная").RemoveAll();
         }
     }
 }

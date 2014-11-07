@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <head>
-  <element Task="Сводная">
+  <Task Name="Сводная">
     <backupPath>C:\Users\diesel\Documents</backupPath>
     <activ>True</activ>
     <base1CPath>G:\Project\1C\Печки-Лавочки\DBКафе</base1CPath>
@@ -11,5 +11,29 @@
     <taskHour>23</taskHour>
     <taskMin>0</taskMin>
     <FileOrServer>2</FileOrServer>
-  </element>
+  </Task>
+  <Task Name="Сводная2">
+    <backupPath>C:\Users\diesel\Documents</backupPath>
+    <activ>True</activ>
+    <base1CPath>G:\Project\1C\Печки-Лавочки\DBКафе</base1CPath>
+    <server1C>fast</server1C>
+    <base1C>svodnaya</base1C>
+    <user1C>асф</user1C>
+    <password1C>358355</password1C>
+    <taskHour>23</taskHour>
+    <taskMin>0</taskMin>
+    <FileOrServer>2</FileOrServer>
+  </Task>
+  <Сводная Name="Сводная2">
+    <backupPath>C:\Users\diesel\Documents</backupPath>
+    <activ>True</activ>
+    <base1CPath>G:\Project\1C\Печки-Лавочки\DBКафе</base1CPath>
+    <server1C>fast</server1C>
+    <base1C>svodnaya</base1C>
+    <user1C>асф</user1C>
+    <password1C>358355</password1C>
+    <taskHour>23</taskHour>
+    <taskMin>0</taskMin>
+    <FileOrServer>2</FileOrServer>
+  </Сводная>
 </head>
