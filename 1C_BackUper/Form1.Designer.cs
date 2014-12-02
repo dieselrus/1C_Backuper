@@ -296,6 +296,7 @@
             this.btnAddTask.TabIndex = 10;
             this.btnAddTask.Text = "+";
             this.btnAddTask.UseVisualStyleBackColor = true;
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
             // 
             // btnRemoveTask
             // 

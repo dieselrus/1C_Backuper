@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,9 @@ namespace _1C_Backuper
 {
     public partial class backup1c : Form
     {
+
+        INI _ini = new INI(AppDomain.CurrentDomain.BaseDirectory + "\\Task.ini");
+
         public backup1c()
         {
             InitializeComponent();
@@ -73,91 +77,77 @@ namespace _1C_Backuper
             }
         }
 
-        private void saveTask()
+        private void saveTaskINI(String Task)
         {
-            // Если файл не существует, создаем
-            if (!File.Exists("Task.xml"))
-            {
-                // Создаём сам XML-файл
-                XmlTextWriter textWritter = new XmlTextWriter("Task.xml", Encoding.UTF8);
-                // Создаём в файле заголовок XML-документа
-                textWritter.WriteStartDocument();
-                // Создём голову (head):
-                textWritter.WriteStartElement("root");
-                // Закрываем её
-                textWritter.WriteEndElement();
-                //  И закрываем наш XmlTextWriter
-                textWritter.Close();
-            }
-
-            XmlDocument document = new XmlDocument();
-            //Загружаем наш файл
-            document.Load("Task.xml");
-
-            XmlNode element = document.CreateElement("Task");
-            document.DocumentElement.AppendChild(element);                  // указываем родителя
-            XmlAttribute attribute = document.CreateAttribute("Name");      // создаём атрибут
-            attribute.Value = txtTaskName.Text;                             // устанавливаем значение атрибута
-            element.Attributes.Append(attribute);                           // добавляем атрибут
-
-            // Task name
-            XmlNode backupPath = document.CreateElement("backupPath");      // даём имя
-            backupPath.InnerText = txtBackUpPath.Text;                      // и значение
-            element.AppendChild(backupPath);                                // и указываем кому принадлежит
-
+            // Путь к архивам
+            _ini.IniWriteValue(Task, "backupPath",  txtBackUpPath.Text);
             // 1C путь файлу 1C
-            XmlNode file1CPath = document.CreateElement("file1CPath");
-            file1CPath.InnerText = txt1CFilePath.Text;
-            element.AppendChild(file1CPath);
-
+            _ini.IniWriteValue(Task, "file1CPath",  txt1CFilePath.Text);
             // Activ
-            XmlNode activ = document.CreateElement("activ");
-            activ.InnerText = chbActiv.Checked.ToString();
-            element.AppendChild(activ);
-
+            _ini.IniWriteValue(Task, "activ", chbActiv.Checked.ToString());
             // 1C путь к базе
-            XmlNode filePath = document.CreateElement("base1CPath");
-            filePath.InnerText = txtBasePath.Text;
-            element.AppendChild(filePath);
-
+            _ini.IniWriteValue(Task, "base1CPath", txtBasePath.Text);
             // 1C сервер
-            XmlNode server1C = document.CreateElement("server1C");
-            server1C.InnerText = txt1CServer.Text;
-            element.AppendChild(server1C);
-
+            _ini.IniWriteValue(Task, "server1C", txt1CServer.Text);
             // 1C база
-            XmlNode base1C = document.CreateElement("base1C");
-            base1C.InnerText = txt1CBase.Text;
-            element.AppendChild(base1C);
-
+            _ini.IniWriteValue(Task, "base1C", txt1CBase.Text);
             // 1C пользователь
-            XmlNode user1C = document.CreateElement("user1C");
-            user1C.InnerText = txt1CUser.Text;
-            element.AppendChild(user1C);
-
+            _ini.IniWriteValue(Task, "user1C", txt1CUser.Text);
             // 1C пароль
-            XmlNode password1C = document.CreateElement("password1C");
-            password1C.InnerText = txt1CPassword.Text;
-            element.AppendChild(password1C);
-
+            _ini.IniWriteValue(Task, "password1C", txt1CPassword.Text);
             // час
-            XmlNode taskHour = document.CreateElement("taskHour");
-            taskHour.InnerText = numHour.Value.ToString();
-            element.AppendChild(taskHour);
-
+            _ini.IniWriteValue(Task, "taskHour", numHour.Value.ToString());
             // минута
-            XmlNode taskMin = document.CreateElement("taskMin");
-            taskMin.InnerText = numMin.Value.ToString();
-            element.AppendChild(taskMin);
-
+            _ini.IniWriteValue(Task, "taskMin", numMin.Value.ToString());
             // вид базы
-            XmlNode FileOrServer = document.CreateElement("FileOrServer");
-            FileOrServer.InnerText = rbtn1CFile.Checked ? "1" : "2";
-            element.AppendChild(FileOrServer);
+            _ini.IniWriteValue(Task, "FileOrServer", rbtn1CFile.Checked ? "1" : "2");
 
-            document.Save("Task.xml");
+            // Удалить секцию
+            //_ini.IniWriteValue(Task, null, null);
         }
 
+        private void readTaskINI(String Task)
+        {
+            txtTaskName.Text = Task;
+            // Путь к архивам
+            txtBackUpPath.Text = _ini.IniReadValue(Task,"backupPath");
+            // 1C путь файлу 1C
+            txt1CFilePath.Text = _ini.IniReadValue(Task,"file1CPath");
+            // Activ
+            if (_ini.IniReadValue(Task, "activ") == "True")
+            {
+                chbActiv.Checked = true;
+            }
+            else
+            {
+                chbActiv.Checked = false;
+            }
+            // 1C путь к базе
+            txtBasePath.Text = _ini.IniReadValue(Task, "base1CPath");
+            // 1C сервер
+            txt1CServer.Text = _ini.IniReadValue(Task, "server1C");
+            // 1C база
+            txt1CBase.Text = _ini.IniReadValue(Task, "base1C");
+            // 1C пользователь
+            txt1CUser.Text = _ini.IniReadValue(Task, "user1C");
+            // 1C пароль
+            txt1CPassword.Text = _ini.IniReadValue(Task, "password1C");
+            // час
+            numHour.Value = Convert.ToInt32(_ini.IniReadValue(Task, "taskHour"));
+            // минута
+            numMin.Value = Convert.ToInt32(_ini.IniReadValue(Task, "taskMin"));
+            // вид базы
+            if (_ini.IniReadValue(Task, "FileOrServer") == "1")
+            {
+                rbtn1CFile.Checked = true;
+            }
+            else if (_ini.IniReadValue(Task, "FileOrServer") == "2")
+            {
+                rbtn1CServer.Checked = true;
+            }
+        }
+
+        // Сохранить задание
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (txtTaskName.Text == "")
@@ -175,14 +165,17 @@ namespace _1C_Backuper
             // If the no button was pressed ...
             if (result == DialogResult.Yes)
             {
-                saveTask();
+                saveTaskINI(txtTaskName.Text);
             }
+
+            lstTask.Items.Clear();
+            lstTask.Items.AddRange(_ini.GetSectionNames());
         }
 
         // Выбор исполняемого файла 1С
         private void btn1CPathBrowse_Click(object sender, EventArgs e)
         {
-            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.InitialDirectory = txt1CFilePath.Text;
             openFileDialog1.Filter = "Исполняемый файл (*.exe)|*.exe";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
@@ -210,134 +203,113 @@ namespace _1C_Backuper
             }
         }
 
-        private void readXML()
-        {
-            // Если файл не существует, создаем
-            if (!File.Exists("Task.xml"))
-            {
-                return;
-            }
-
-            XDocument doc = XDocument.Load("Task.xml");
-            if (doc == null || doc.Root == null)
-                throw new ApplicationException("invalid data");
-
-            //проходим по каждому элементу в найшей library
-            //(этот элемент сразу доступен через свойство doc.Root)
-            foreach (XElement el in doc.Root.Elements())
-            {
-                lstTask.Items.Add(el.Attribute("Name").Value);
-                /*
-                //Выводим имя элемента и значение аттрибута id
-                Console.WriteLine("{0} {1}", el.Name, el.Attribute("Task").Value);
-                Console.WriteLine("  Attributes:");
-                //выводим в цикле все аттрибуты, заодно смотрим как они себя преобразуют в строку
-                foreach (XAttribute attr in el.Attributes())
-                    Console.WriteLine("    {0}", attr);
-                Console.WriteLine("  Elements:");
-                //выводим в цикле названия всех дочерних элементов и их значения
-                foreach (XElement element in el.Elements())
-                    Console.WriteLine("    {0}: {1}", element.Name, element.Value);
-                 */
-            }
-        }
-
-        private void readTaskSettings(String taskName)
-        {
-            // Если файл не существует, создаем
-            if (!File.Exists("Task.xml"))
-            {
-                return;
-            }
-
-            XDocument doc = XDocument.Load("Task.xml");
-            if (doc == null || doc.Root == null)
-                throw new ApplicationException("invalid data");
-
-            //проходим по каждому элементу в найшей library
-            //(этот элемент сразу доступен через свойство doc.Root)
-            foreach (XElement el in doc.Root.Elements("Task"))
-            {
-
-                if (el.Attribute("Name").Value == taskName)
-                {
-
-                    try
-                    {
-                        //foreach (XElement element in el.Elements())
-                        //    Console.WriteLine("    {0}: {1}", element.Name, element.Value);
-
-                        txtTaskName.Text = taskName;
-
-                        txtBackUpPath.Text = el.Elements("backupPath").First().Value;
-
-                        txt1CFilePath.Text = el.Elements("file1CPath").First().Value;
-
-                        if (el.Elements("activ").First().Value == "True")
-                        {
-                            chbActiv.Checked = true;
-                        }
-                        else
-                        {
-                            chbActiv.Checked = false;
-                        }
-
-                        txtBasePath.Text = el.Elements("base1CPath").First().Value;
-                        txt1CServer.Text = el.Elements("server1C").First().Value;
-                        txt1CBase.Text = el.Elements("base1C").First().Value;
-                        txt1CUser.Text = el.Elements("user1C").First().Value;
-                        txt1CPassword.Text = el.Elements("password1C").First().Value;
-                        numHour.Value = Convert.ToInt32(el.Elements("taskHour").First().Value);
-                        numMin.Value = Convert.ToInt32(el.Elements("taskMin").First().Value);
-
-                        if (el.Elements("FileOrServer").First().Value == "1")
-                        {
-                            rbtn1CFile.Checked = true;
-                        }
-                        else if (el.Elements("FileOrServer").First().Value == "2")
-                        {
-                            rbtn1CServer.Checked = true;
-                        }
-                    }
-
-                    catch (IOException e)
-                    {
-                        string message = e.Source.ToString();
-                        const string caption = "Ошибка тения файла заданий!";
-                        var result = MessageBox.Show(message, caption,
-                                                     MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Error);
-                    }
-                }
-
-            }
-        }
-
+        // Выбор задания в списке
         private void lstTask_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            //Console.WriteLine("lstTask_SelectedIndexChanged" + sender);
-            readTaskSettings(lstTask.GetItemText(lstTask.SelectedItem));		
+            readTaskINI(lstTask.GetItemText(lstTask.SelectedItem));		
         }
 
+        // Загрузка формы
         private void backup1c_Load(object sender, EventArgs e)
         {
             lstTask.Items.Clear();
-            readXML();
+            lstTask.Items.AddRange(_ini.GetSectionNames());
         }
 
+        // Удаление задания из списка
         private void btnRemoveTask_Click(object sender, EventArgs e)
         {
-            // Если файл не существует, создаем
-            if (!File.Exists("Task.xml"))
-            {
-                return;
-            }
+            // Удалить секцию
+            _ini.IniWriteValue(lstTask.GetItemText(lstTask.SelectedItem), null, null);
 
-            XDocument doc = XDocument.Load("Task.xml");
-            if (doc == null || doc.Root == null)
-                throw new ApplicationException("invalid data");
-
-            doc.Element("Сводная").RemoveAll();
+            lstTask.Items.Clear();
+            lstTask.Items.AddRange(_ini.GetSectionNames());
         }
+
+        // Новая задача
+        private void btnAddTask_Click(object sender, EventArgs e)
+        {
+            readTaskINI(null);
+        }
+
+    }
+
+
+    class INI
+    { 
+        //Использование может быть следующим. Записываем значение в файл: 
+        //INI ini = new INI("Путь_к_файлу"); ini.IniWriteValue("Test_block","Key","Value");
+
+        //Теперь в нашем файле есть значение Key, которое равно Value. Теперь считаем его: 
+        //string value = ini.IniReadValue("Test_block","Key");
+
+        public string pathINI;
+
+        [DllImport("kernel32")] 
+        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        [DllImport("kernel32")] 
+        private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+
+        // Second Method
+        [DllImport("kernel32")]
+        static extern int GetPrivateProfileString(string Section, int Key, string Value, [MarshalAs(UnmanagedType.LPArray)] byte[] Result, int Size, string FileName);
+
+        // Third Method
+        [DllImport("kernel32")]
+        static extern int GetPrivateProfileString(int Section, string Key, string Value, [MarshalAs(UnmanagedType.LPArray)] byte[] Result, int Size, string FileName);
+
+        public INI(string INIPath) 
+        { 
+             pathINI = INIPath; 
+        } 
+
+        public void IniWriteValue(string Section, string Key, string Value) 
+        { 
+               if(!Directory.Exists(Path.GetDirectoryName(pathINI))) 
+                     Directory.CreateDirectory(Path.GetDirectoryName(pathINI)); 
+               if(!File.Exists(pathINI)) 
+                      using (File.Create(pathINI)) { }; 
+
+               WritePrivateProfileString(Section, Key, Value, this.pathINI); 
+        } 
+
+       public string IniReadValue(string Section, string Key) 
+       { 
+             StringBuilder temp = new StringBuilder(255); 
+             int i = GetPrivateProfileString(Section, Key, "", temp, 255, this.pathINI); 
+             return temp.ToString(); 
+       }
+
+       public string[] GetSectionNames()
+       {
+           //    Sets the maxsize buffer to 500, if the more
+           //    is required then doubles the size each time.
+           for (int maxsize = 500; true; maxsize *= 2)
+           {
+               //    Obtains the information in bytes and stores
+               //    them in the maxsize buffer (Bytes array)
+               byte[] bytes = new byte[maxsize];
+               int size = GetPrivateProfileString(0, "", "", bytes, maxsize, this.pathINI);
+
+               // Check the information obtained is not bigger
+               // than the allocated maxsize buffer - 2 bytes.
+               // if it is, then skip over the next section
+               // so that the maxsize buffer can be doubled.
+               if (size < maxsize - 2)
+               {
+                   // Converts the bytes value into an ASCII char. This is one long string.
+                   //string Selected = Encoding.ASCII.GetString(bytes, 0, size - (size > 0 ? 1 : 0));
+
+                   // русский
+                   string Selected = Encoding.Default.GetString(bytes, 0, size - (size > 0 ? 1 : 0));
+                   // sRet = System.Text.Encoding.Default.GetString(bRet, 0, i).TrimEnd((char)0);
+                   //string Selected = System.Text.Encoding.Default.GetString(bRet, 0, i).TrimEnd((char)0);
+
+                   // Splits the Long string into an array based on the "\0"
+                   // or null (Newline) value and returns the value(s) in an array
+                   return Selected.Split(new char[] { '\0' });
+               }
+           }
+       }
     }
 }
