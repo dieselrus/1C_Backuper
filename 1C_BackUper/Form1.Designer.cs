@@ -28,20 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt1CBase = new System.Windows.Forms.TextBox();
-            this.txt1CServer = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt1CPassword = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt1CUser = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnBasePathBrows = new System.Windows.Forms.Button();
-            this.txtBasePath = new System.Windows.Forms.TextBox();
-            this.rbtn1CServer = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rbtn1CFile = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBackUpPath = new System.Windows.Forms.TextBox();
             this.btnBackUpPathBrows = new System.Windows.Forms.Button();
@@ -61,16 +47,297 @@
             this.label10 = new System.Windows.Forms.Label();
             this.chbActiv = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txt1CFilePath = new System.Windows.Forms.TextBox();
-            this.btn1CPathBrowse = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lstTask = new System.Windows.Forms.ListBox();
-            this.groupBox1.SuspendLayout();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn1CPathBrowse = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt1CBase = new System.Windows.Forms.TextBox();
+            this.txt1CServer = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt1CPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt1CUser = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnBasePathBrows = new System.Windows.Forms.Button();
+            this.txtBasePath = new System.Windows.Forms.TextBox();
+            this.rbtn1CServer = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rbtn1CFile = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt1CFilePath = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cbxKill1C = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Сохранять в :";
+            // 
+            // txtBackUpPath
+            // 
+            this.txtBackUpPath.Location = new System.Drawing.Point(84, 6);
+            this.txtBackUpPath.Name = "txtBackUpPath";
+            this.txtBackUpPath.Size = new System.Drawing.Size(270, 20);
+            this.txtBackUpPath.TabIndex = 3;
+            // 
+            // btnBackUpPathBrows
+            // 
+            this.btnBackUpPathBrows.Location = new System.Drawing.Point(360, 6);
+            this.btnBackUpPathBrows.Name = "btnBackUpPathBrows";
+            this.btnBackUpPathBrows.Size = new System.Drawing.Size(31, 20);
+            this.btnBackUpPathBrows.TabIndex = 4;
+            this.btnBackUpPathBrows.Text = "...";
+            this.btnBackUpPathBrows.UseVisualStyleBackColor = true;
+            this.btnBackUpPathBrows.Click += new System.EventHandler(this.btnBackUpPathBrows_Click);
+            // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
+            // numHour
+            // 
+            this.numHour.Location = new System.Drawing.Point(116, 41);
+            this.numHour.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.numHour.Name = "numHour";
+            this.numHour.Size = new System.Drawing.Size(45, 20);
+            this.numHour.TabIndex = 5;
+            this.numHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numMin
+            // 
+            this.numMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numMin.Location = new System.Drawing.Point(198, 41);
+            this.numMin.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.numMin.Name = "numMin";
+            this.numMin.Size = new System.Drawing.Size(45, 20);
+            this.numMin.TabIndex = 6;
+            this.numMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(525, 385);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Отмена";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(444, 384);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 8;
+            this.btnOK.Text = "ОК";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnAddTask
+            // 
+            this.btnAddTask.Location = new System.Drawing.Point(12, 384);
+            this.btnAddTask.Name = "btnAddTask";
+            this.btnAddTask.Size = new System.Drawing.Size(33, 23);
+            this.btnAddTask.TabIndex = 10;
+            this.btnAddTask.Text = "+";
+            this.btnAddTask.UseVisualStyleBackColor = true;
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
+            // 
+            // btnRemoveTask
+            // 
+            this.btnRemoveTask.Location = new System.Drawing.Point(51, 385);
+            this.btnRemoveTask.Name = "btnRemoveTask";
+            this.btnRemoveTask.Size = new System.Drawing.Size(32, 23);
+            this.btnRemoveTask.TabIndex = 11;
+            this.btnRemoveTask.Text = "-";
+            this.btnRemoveTask.UseVisualStyleBackColor = true;
+            this.btnRemoveTask.Click += new System.EventHandler(this.btnRemoveTask_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(194, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Имя задания:";
+            // 
+            // txtTaskName
+            // 
+            this.txtTaskName.Location = new System.Drawing.Point(290, 13);
+            this.txtTaskName.Name = "txtTaskName";
+            this.txtTaskName.Size = new System.Drawing.Size(328, 20);
+            this.txtTaskName.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Выполнять каждый";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(168, 43);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(27, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "час.";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(253, 43);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(30, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "мин.";
+            // 
+            // chbActiv
+            // 
+            this.chbActiv.AutoSize = true;
+            this.chbActiv.Checked = true;
+            this.chbActiv.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbActiv.Location = new System.Drawing.Point(194, 43);
+            this.chbActiv.Name = "chbActiv";
+            this.chbActiv.Size = new System.Drawing.Size(127, 17);
+            this.chbActiv.TabIndex = 17;
+            this.chbActiv.Text = "Выполнять задание";
+            this.chbActiv.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(547, 357);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 18;
+            this.btnSave.Text = "Сохранить";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog";
+            // 
+            // lstTask
+            // 
+            this.lstTask.FormattingEnabled = true;
+            this.lstTask.Location = new System.Drawing.Point(12, 12);
+            this.lstTask.Name = "lstTask";
+            this.lstTask.Size = new System.Drawing.Size(176, 368);
+            this.lstTask.TabIndex = 22;
+            this.lstTask.SelectedIndexChanged += new System.EventHandler(this.lstTask_SelectedIndexChanged_1);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "День",
+            "Понедель"});
+            this.comboBox1.Location = new System.Drawing.Point(137, 6);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 23;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Location = new System.Drawing.Point(194, 66);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(428, 282);
+            this.tabControl1.TabIndex = 24;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.btnBackUpPathBrows);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.txtBackUpPath);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(420, 256);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Основные";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.numHour);
+            this.tabPage2.Controls.Add(this.numMin);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(420, 256);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Расписание";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.cbxKill1C);
+            this.tabPage3.Controls.Add(this.btn1CPathBrowse);
+            this.tabPage3.Controls.Add(this.groupBox1);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.txt1CFilePath);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(420, 256);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Средствами 1С";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btn1CPathBrowse
+            // 
+            this.btn1CPathBrowse.Location = new System.Drawing.Point(381, 46);
+            this.btn1CPathBrowse.Name = "btn1CPathBrowse";
+            this.btn1CPathBrowse.Size = new System.Drawing.Size(30, 20);
+            this.btn1CPathBrowse.TabIndex = 29;
+            this.btn1CPathBrowse.Text = "...";
+            this.btn1CPathBrowse.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -87,10 +354,10 @@
             this.groupBox1.Controls.Add(this.rbtn1CServer);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.rbtn1CFile);
-            this.groupBox1.Location = new System.Drawing.Point(194, 129);
+            this.groupBox1.Location = new System.Drawing.Point(8, 75);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(406, 174);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "База данных 1С";
             // 
@@ -169,7 +436,6 @@
             this.btnBasePathBrows.TabIndex = 8;
             this.btnBasePathBrows.Text = "...";
             this.btnBasePathBrows.UseVisualStyleBackColor = true;
-            this.btnBasePathBrows.Click += new System.EventHandler(this.btnBasePathBrows_Click);
             // 
             // txtBasePath
             // 
@@ -188,7 +454,6 @@
             this.rbtn1CServer.TabStop = true;
             this.rbtn1CServer.Text = "На сервере";
             this.rbtn1CServer.UseVisualStyleBackColor = true;
-            this.rbtn1CServer.CheckedChanged += new System.EventHandler(this.rbtn1CServer_CheckedChanged);
             // 
             // label2
             // 
@@ -209,246 +474,113 @@
             this.rbtn1CFile.TabStop = true;
             this.rbtn1CFile.Text = "Файловая";
             this.rbtn1CFile.UseVisualStyleBackColor = true;
-            this.rbtn1CFile.CheckedChanged += new System.EventHandler(this.rbtn1CFile_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(194, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Сохранять в :";
-            // 
-            // txtBackUpPath
-            // 
-            this.txtBackUpPath.Location = new System.Drawing.Point(291, 68);
-            this.txtBackUpPath.Name = "txtBackUpPath";
-            this.txtBackUpPath.Size = new System.Drawing.Size(270, 20);
-            this.txtBackUpPath.TabIndex = 3;
-            // 
-            // btnBackUpPathBrows
-            // 
-            this.btnBackUpPathBrows.Location = new System.Drawing.Point(567, 68);
-            this.btnBackUpPathBrows.Name = "btnBackUpPathBrows";
-            this.btnBackUpPathBrows.Size = new System.Drawing.Size(31, 20);
-            this.btnBackUpPathBrows.TabIndex = 4;
-            this.btnBackUpPathBrows.Text = "...";
-            this.btnBackUpPathBrows.UseVisualStyleBackColor = true;
-            this.btnBackUpPathBrows.Click += new System.EventHandler(this.btnBackUpPathBrows_Click);
-            // 
-            // eventLog1
-            // 
-            this.eventLog1.SynchronizingObject = this;
-            // 
-            // numHour
-            // 
-            this.numHour.Location = new System.Drawing.Point(290, 317);
-            this.numHour.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.numHour.Name = "numHour";
-            this.numHour.Size = new System.Drawing.Size(45, 20);
-            this.numHour.TabIndex = 5;
-            this.numHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // numMin
-            // 
-            this.numMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numMin.Location = new System.Drawing.Point(375, 317);
-            this.numMin.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.numMin.Name = "numMin";
-            this.numMin.Size = new System.Drawing.Size(45, 20);
-            this.numMin.TabIndex = 6;
-            this.numMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(525, 353);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Отмена";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnOK
-            // 
-            this.btnOK.Location = new System.Drawing.Point(444, 352);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 8;
-            this.btnOK.Text = "ОК";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnAddTask
-            // 
-            this.btnAddTask.Location = new System.Drawing.Point(12, 352);
-            this.btnAddTask.Name = "btnAddTask";
-            this.btnAddTask.Size = new System.Drawing.Size(33, 23);
-            this.btnAddTask.TabIndex = 10;
-            this.btnAddTask.Text = "+";
-            this.btnAddTask.UseVisualStyleBackColor = true;
-            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
-            // 
-            // btnRemoveTask
-            // 
-            this.btnRemoveTask.Location = new System.Drawing.Point(51, 353);
-            this.btnRemoveTask.Name = "btnRemoveTask";
-            this.btnRemoveTask.Size = new System.Drawing.Size(32, 23);
-            this.btnRemoveTask.TabIndex = 11;
-            this.btnRemoveTask.Text = "-";
-            this.btnRemoveTask.UseVisualStyleBackColor = true;
-            this.btnRemoveTask.Click += new System.EventHandler(this.btnRemoveTask_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(194, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Имя задания:";
-            // 
-            // txtTaskName
-            // 
-            this.txtTaskName.Location = new System.Drawing.Point(290, 13);
-            this.txtTaskName.Name = "txtTaskName";
-            this.txtTaskName.Size = new System.Drawing.Size(308, 20);
-            this.txtTaskName.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(194, 319);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Выполнять в";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(342, 319);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(27, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "час.";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(427, 319);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(30, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "мин.";
-            // 
-            // chbActiv
-            // 
-            this.chbActiv.AutoSize = true;
-            this.chbActiv.Checked = true;
-            this.chbActiv.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbActiv.Location = new System.Drawing.Point(194, 43);
-            this.chbActiv.Name = "chbActiv";
-            this.chbActiv.Size = new System.Drawing.Size(127, 17);
-            this.chbActiv.TabIndex = 17;
-            this.chbActiv.Text = "Выполнять задание";
-            this.chbActiv.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(517, 317);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 18;
-            this.btnSave.Text = "Сохранить";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(194, 104);
+            this.label11.Location = new System.Drawing.Point(8, 50);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(119, 13);
-            this.label11.TabIndex = 19;
+            this.label11.TabIndex = 27;
             this.label11.Text = "Путь к программе 1С:";
             // 
             // txt1CFilePath
             // 
-            this.txt1CFilePath.Location = new System.Drawing.Point(319, 100);
+            this.txt1CFilePath.Location = new System.Drawing.Point(133, 46);
             this.txt1CFilePath.Name = "txt1CFilePath";
             this.txt1CFilePath.Size = new System.Drawing.Size(242, 20);
-            this.txt1CFilePath.TabIndex = 20;
+            this.txt1CFilePath.TabIndex = 28;
             // 
-            // btn1CPathBrowse
+            // tabPage4
             // 
-            this.btn1CPathBrowse.Location = new System.Drawing.Point(567, 100);
-            this.btn1CPathBrowse.Name = "btn1CPathBrowse";
-            this.btn1CPathBrowse.Size = new System.Drawing.Size(30, 20);
-            this.btn1CPathBrowse.TabIndex = 21;
-            this.btn1CPathBrowse.Text = "...";
-            this.btn1CPathBrowse.UseVisualStyleBackColor = true;
-            this.btn1CPathBrowse.Click += new System.EventHandler(this.btn1CPathBrowse_Click);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(420, 256);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Средствами архиватора";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // openFileDialog1
+            // cbxKill1C
             // 
-            this.openFileDialog1.FileName = "openFileDialog";
+            this.cbxKill1C.AutoSize = true;
+            this.cbxKill1C.Checked = true;
+            this.cbxKill1C.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxKill1C.Location = new System.Drawing.Point(11, 23);
+            this.cbxKill1C.Name = "cbxKill1C";
+            this.cbxKill1C.Size = new System.Drawing.Size(252, 17);
+            this.cbxKill1C.TabIndex = 30;
+            this.cbxKill1C.Text = "Принудительно завершать все процессы 1С";
+            this.cbxKill1C.UseVisualStyleBackColor = true;
             // 
-            // lstTask
+            // groupBox2
             // 
-            this.lstTask.FormattingEnabled = true;
-            this.lstTask.Location = new System.Drawing.Point(12, 12);
-            this.lstTask.Name = "lstTask";
-            this.lstTask.Size = new System.Drawing.Size(176, 329);
-            this.lstTask.TabIndex = 22;
-            this.lstTask.SelectedIndexChanged += new System.EventHandler(this.lstTask_SelectedIndexChanged_1);
+            this.groupBox2.Controls.Add(this.radioButton2);
+            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Location = new System.Drawing.Point(10, 32);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(404, 100);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(7, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(313, 20);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // backup1c
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 385);
+            this.ClientSize = new System.Drawing.Size(629, 415);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lstTask);
-            this.Controls.Add(this.btn1CPathBrowse);
-            this.Controls.Add(this.txt1CFilePath);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.chbActiv);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTaskName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRemoveTask);
             this.Controls.Add(this.btnAddTask);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.numMin);
-            this.Controls.Add(this.numHour);
-            this.Controls.Add(this.btnBackUpPathBrows);
-            this.Controls.Add(this.txtBackUpPath);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "backup1c";
             this.Text = "1C Backuper";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.backup1c_FormClosing);
             this.Load += new System.EventHandler(this.backup1c_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,21 +588,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt1CBase;
-        private System.Windows.Forms.TextBox txt1CServer;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt1CPassword;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt1CUser;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnBasePathBrows;
-        private System.Windows.Forms.TextBox txtBasePath;
-        private System.Windows.Forms.RadioButton rbtn1CServer;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton rbtn1CFile;
         private System.Windows.Forms.TextBox txtBackUpPath;
         private System.Windows.Forms.Button btnBackUpPathBrows;
         private System.Windows.Forms.FolderBrowserDialog fbdBackUp;
@@ -489,11 +607,35 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chbActiv;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btn1CPathBrowse;
-        private System.Windows.Forms.TextBox txt1CFilePath;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ListBox lstTask;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.CheckBox cbxKill1C;
+        private System.Windows.Forms.Button btn1CPathBrowse;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt1CBase;
+        private System.Windows.Forms.TextBox txt1CServer;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt1CPassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt1CUser;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnBasePathBrows;
+        private System.Windows.Forms.TextBox txtBasePath;
+        private System.Windows.Forms.RadioButton rbtn1CServer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rbtn1CFile;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txt1CFilePath;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }
 

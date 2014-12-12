@@ -229,7 +229,7 @@ namespace _1C_Backuper
         // Новая задача
         private void btnAddTask_Click(object sender, EventArgs e)
         {
-            readTaskINI(null);
+            //readTaskINI(null);
         }
 
     }
