@@ -101,6 +101,10 @@ namespace _1C_Backuper
             _ini.IniWriteValue(Task, "taskMin", numMin.Value.ToString());
             // вид базы
             _ini.IniWriteValue(Task, "FileOrServer", rbtn1CFile.Checked ? "1" : "2");
+            // kill 1C process
+            _ini.IniWriteValue(Task, "kill1C", chbKill1C.Checked.ToString());
+            // Способ резервного копирования. 1 - 1С, 2 - 7Zip
+            _ini.IniWriteValue(Task, "1COr7Zip", rbtn1C.Checked ? "1" : "2");
 
             // Удалить секцию
             //_ini.IniWriteValue(Task, null, null);
@@ -144,6 +148,15 @@ namespace _1C_Backuper
             else if (_ini.IniReadValue(Task, "FileOrServer") == "2")
             {
                 rbtn1CServer.Checked = true;
+            }
+            // Kill 1C process
+            if (_ini.IniReadValue(Task, "kill1C") == "True")
+            {
+                chbKill1C.Checked = true;
+            }
+            else
+            {
+                chbKill1C.Checked = false;
             }
         }
 

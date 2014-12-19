@@ -52,8 +52,12 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbtn7Zip = new System.Windows.Forms.RadioButton();
+            this.rbtn1C = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chbKill1C = new System.Windows.Forms.CheckBox();
             this.btn1CPathBrowse = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,19 +76,15 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txt1CFilePath = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.cbxKill1C = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMin)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -299,6 +299,39 @@
             this.tabPage1.Text = "Основные";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbtn7Zip);
+            this.groupBox2.Controls.Add(this.rbtn1C);
+            this.groupBox2.Location = new System.Drawing.Point(10, 32);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(193, 73);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Способ резервного копировани";
+            // 
+            // rbtn7Zip
+            // 
+            this.rbtn7Zip.AutoSize = true;
+            this.rbtn7Zip.Location = new System.Drawing.Point(7, 43);
+            this.rbtn7Zip.Name = "rbtn7Zip";
+            this.rbtn7Zip.Size = new System.Drawing.Size(49, 17);
+            this.rbtn7Zip.TabIndex = 1;
+            this.rbtn7Zip.Text = "7 Zip";
+            this.rbtn7Zip.UseVisualStyleBackColor = true;
+            // 
+            // rbtn1C
+            // 
+            this.rbtn1C.AutoSize = true;
+            this.rbtn1C.Checked = true;
+            this.rbtn1C.Location = new System.Drawing.Point(7, 20);
+            this.rbtn1C.Name = "rbtn1C";
+            this.rbtn1C.Size = new System.Drawing.Size(103, 17);
+            this.rbtn1C.TabIndex = 0;
+            this.rbtn1C.TabStop = true;
+            this.rbtn1C.Text = "Средствами 1С";
+            this.rbtn1C.UseVisualStyleBackColor = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.comboBox1);
@@ -317,7 +350,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.cbxKill1C);
+            this.tabPage3.Controls.Add(this.chbKill1C);
             this.tabPage3.Controls.Add(this.btn1CPathBrowse);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.label11);
@@ -329,6 +362,18 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Средствами 1С";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chbKill1C
+            // 
+            this.chbKill1C.AutoSize = true;
+            this.chbKill1C.Checked = true;
+            this.chbKill1C.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbKill1C.Location = new System.Drawing.Point(11, 23);
+            this.chbKill1C.Name = "chbKill1C";
+            this.chbKill1C.Size = new System.Drawing.Size(252, 17);
+            this.chbKill1C.TabIndex = 30;
+            this.chbKill1C.Text = "Принудительно завершать все процессы 1С";
+            this.chbKill1C.UseVisualStyleBackColor = true;
             // 
             // btn1CPathBrowse
             // 
@@ -501,51 +546,6 @@
             this.tabPage4.Text = "Средствами архиватора";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // cbxKill1C
-            // 
-            this.cbxKill1C.AutoSize = true;
-            this.cbxKill1C.Checked = true;
-            this.cbxKill1C.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxKill1C.Location = new System.Drawing.Point(11, 23);
-            this.cbxKill1C.Name = "cbxKill1C";
-            this.cbxKill1C.Size = new System.Drawing.Size(252, 17);
-            this.cbxKill1C.TabIndex = 30;
-            this.cbxKill1C.Text = "Принудительно завершать все процессы 1С";
-            this.cbxKill1C.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Location = new System.Drawing.Point(10, 32);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(404, 100);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(313, 20);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
             // backup1c
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,14 +573,14 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -612,12 +612,12 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbtn7Zip;
+        private System.Windows.Forms.RadioButton rbtn1C;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.CheckBox cbxKill1C;
+        private System.Windows.Forms.CheckBox chbKill1C;
         private System.Windows.Forms.Button btn1CPathBrowse;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
